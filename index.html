@@ -1,0 +1,100 @@
+
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CON — Central Operacional News — PRO v2.1</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-left">
+      <img src="assets/logo-news.svg" alt="News Logo" class="logo" />
+      <div class="header-text">
+        <div class="main-title">CON — Central Operacional News</div>
+        <div id="datetime" class="datetime">--/--/---- --:--:--</div>
+      </div>
+    </div>
+    <div class="topbar-center">
+      <input id="searchInput" type="text" placeholder="Buscar notícia..." />
+    </div>
+    <div class="topbar-right">
+      <button id="downloadCsv" class="btn btn-secondary">Baixar CSV</button>
+      <button id="refreshBtn" class="btn btn-primary">Atualizar</button>
+      <button id="mapToggle" class="btn btn-secondary">Mapa</button>
+    </div>
+  </header>
+
+  <div class="filters-row">
+    <div class="filters-left">
+      <div class="selects">
+        <select id="typeFilter"><option value="all">Todos os Tipos</option><option>Acidente</option><option>Roubo / Furto</option><option>Trânsito / Lentidão</option><option>Interdição</option><option>Portos / Marítimo</option><option>Leis / Regulação</option><option>Sindicatos / Greve</option></select>
+        <select id="regionFilter"><option value="all">Todas as Regiões</option><option>Sudeste</option><option>Sul</option><option>Centro-Oeste</option><option>Norte</option><option>Nordeste</option></select>
+        <select id="roadFilter"><option value="all">Todas as Rodovias</option></select>
+      </div>
+    </div>
+    <div class="filters-right stats">
+      <div class="stat"><div class="stat-title">Total</div><div id="stat-total" class="stat-value">0</div></div>
+      <div class="stat"><div class="stat-title">Acidentes</div><div id="stat-acidentes" class="stat-value">0</div></div>
+      <div class="stat"><div class="stat-title">Interdições</div><div id="stat-interdicoes" class="stat-value">0</div></div>
+      <div class="stat"><div class="stat-title">Trânsito</div><div id="stat-transito" class="stat-value">0</div></div>
+      <div class="stat"><div class="stat-title">Roubo / Furto</div><div id="stat-roubo" class="stat-value">0</div></div>
+    </div>
+  </div>
+
+  <main class="main">
+    <section class="left-col">
+      <div class="charts-area">
+        <h3>📊 Análise das Ocorrências</h3>
+        <div class="charts-row">
+          <canvas id="chartType"></canvas>
+          <canvas id="chartRegion"></canvas>
+        </div>
+      </div>
+
+      <div id="mapContainer" class="map-container">
+        <div id="map" style="height:480px;"></div>
+        <div id="map-filters" class="map-filters">
+          <label><input type="checkbox" data-type="Acidente" checked> Acidentes</label>
+          <label><input type="checkbox" data-type="Interdição" checked> Interdições</label>
+          <label><input type="checkbox" data-type="Trânsito / Lentidão" checked> Trânsito</label>
+          <label><input type="checkbox" data-type="Roubo / Furto" checked> Roubo/Furto</label>
+          <label><input type="checkbox" data-type="Portos / Marítimo" checked> Portos</label>
+        </div>
+      </div>
+
+      <section class="news-section">
+        <h2>Últimas notícias</h2>
+        <div id="last-collection" class="last-collection">Última coleta: -- • 0 itens</div>
+        <div id="newsList" class="news-list"></div>
+      </section>
+    </section>
+
+    <aside class="side">
+      <div class="card climate-card"><h3>Situação Climática</h3><div id="climateContent">Carregando clima...</div></div>
+      <div class="card phones-card"><h3>Telefones úteis</h3><pre>Corpo de Bombeiros — 193
+Polícia Civil — 181
+Polícia Militar — 190
+SAMU — 192
+Ambipar — 0800-123-456
+PRF — 191
+Defesa Civil — 199</pre></div>
+      <div class="card concession-card"><h3>Ver Concessionárias</h3><ul><li><a href="#">CCR AutoBAn</a></li><li><a href="#">CCR RIO-SP</a></li><li><a href="#">CCR AutoVias</a></li><li><a href="#">Ecovias</a></li><li><a href="#">Arteris</a></li></ul></div>
+    </aside>
+  </main>
+
+  <footer class="footer">CON — Central Operacional News — Torres • Fontes públicas • Protótipo v2.1</footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/map.js"></script>
+  <script src="assets/js/charts.js"></script>
+  <script src="assets/js/climate.js"></script>
+</body>
+</html>

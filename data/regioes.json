@@ -1,0 +1,39 @@
+{
+  "Norte": [
+    "AM",
+    "PA",
+    "RR",
+    "AP",
+    "RO",
+    "TO",
+    "AC"
+  ],
+  "Nordeste": [
+    "MA",
+    "PI",
+    "CE",
+    "RN",
+    "PB",
+    "PE",
+    "AL",
+    "SE",
+    "BA"
+  ],
+  "Centro-Oeste": [
+    "MT",
+    "MS",
+    "GO",
+    "DF"
+  ],
+  "Sudeste": [
+    "SP",
+    "RJ",
+    "MG",
+    "ES"
+  ],
+  "Sul": [
+    "PR",
+    "SC",
+    "RS"
+  ]
+}

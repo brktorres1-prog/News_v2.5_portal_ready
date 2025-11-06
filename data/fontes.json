@@ -1,0 +1,26 @@
+[
+  {
+    "name": "G1 - Brasil",
+    "url": "https://g1.globo.com/rss/g1/"
+  },
+  {
+    "name": "G1 - Economia",
+    "url": "https://g1.globo.com/economia/rss/"
+  },
+  {
+    "name": "G1 - Mundo",
+    "url": "https://g1.globo.com/mundo/rss/"
+  },
+  {
+    "name": "Agência Brasil",
+    "url": "https://agenciabrasil.ebc.com.br/ultimas-noticias.rss"
+  },
+  {
+    "name": "CNN Brasil",
+    "url": "https://www.cnnbrasil.com.br/feed/"
+  },
+  {
+    "name": "Valor Econômico",
+    "url": "https://valor.globo.com/ultimas-noticias/rss2.xml"
+  }
+]

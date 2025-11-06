@@ -8,10 +8,6 @@
     "url": "https://g1.globo.com/economia/rss/"
   },
   {
-    "name": "G1 - Mundo",
-    "url": "https://g1.globo.com/mundo/rss/"
-  },
-  {
     "name": "Agência Brasil",
     "url": "https://agenciabrasil.ebc.com.br/ultimas-noticias.rss"
   },
@@ -20,7 +16,7 @@
     "url": "https://www.cnnbrasil.com.br/feed/"
   },
   {
-    "name": "Valor Econômico",
-    "url": "https://valor.globo.com/ultimas-noticias/rss2.xml"
+    "name": "PRF",
+    "url": "https://www.prf.gov.br/noticias/rss"
   }
 ]

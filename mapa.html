@@ -1,0 +1,42 @@
+
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Mapa — News</title>
+<link rel="stylesheet" href="assets/css/style.css"/>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
+</head>
+<body class="map-page">
+  <header class="topbar small">
+    <div class="left"><img src="assets/img/logo-news.svg" class="logo"/><div class="site-title">Mapa — CON News</div></div>
+    <div class="right"><button onclick="window.close()" class="btn">Voltar</button></div>
+  </header>
+  <div id="mapFull" style="height:calc(100vh - 70px);"></div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+<script>
+async function initFullMap(){
+  const map = L.map('mapFull').setView([-15,-55],4);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+  const markers = L.markerClusterGroup();
+  try{
+    // first try localStorage (set by index)
+    let items = [];
+    try{ items = JSON.parse(localStorage.getItem('news_occurrences') || '[]'); }catch(e){}
+    if(!items || !items.length){
+      const r = await fetch('data/ocorrencias.json'); items = await r.json();
+    }
+    items.forEach(it=>{
+      const lat = (it.lat!==undefined?it.lat:-15.0), lon=(it.lon!==undefined?it.lon:-55.0);
+      const m = L.marker([lat,lon]);
+      m.bindPopup('<strong>'+ (it.title||'') +'</strong><br/>' + (it.source||'') + '<br/>' + (it.pubDate||'') + '<br/><a href="'+(it.link||'#')+'" target="_blank">Abrir notícia</a>');
+      markers.addLayer(m);
+    });
+    map.addLayer(markers);
+  }catch(e){ console.warn(e); }
+}
+window.addEventListener('load', initFullMap);
+</script>
+</body>
+</html>

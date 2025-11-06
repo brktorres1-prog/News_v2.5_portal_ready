@@ -1,0 +1,30 @@
+
+:root{--blue-dark:#002B64;--blue-medium:#003D80;--blue-light:#F2F7FB;--white:#fff;--btn:#0B5ED7}
+*{box-sizing:border-box;font-family:Inter,Arial,Helvetica,sans-serif}
+body{margin:0;background:var(--blue-light);color:var(--blue-medium)}
+.topbar{background:var(--blue-dark);color:var(--white);display:flex;align-items:center;justify-content:space-between;padding:10px 16px;position:sticky;top:0;z-index:100}
+.topbar.small{height:54px}
+.logo{height:46px}
+.site-title{font-weight:700;color:#fff}
+.center input{width:480px;padding:8px;border-radius:6px;border:0}
+.right .btn{padding:8px 12px;border-radius:6px;border:0;margin-left:6px}
+.primary{background:var(--btn);color:#fff}
+.filters-row{display:flex;justify-content:space-between;align-items:center;padding:12px 20px;background:#fff;border-bottom:1px solid #e6e6e6}
+.left-filters select{padding:8px 10px;margin-right:8px;border-radius:6px;border:1px solid #ddd;background:#fff;color:#000}
+.metrics-row{display:flex;gap:12px;align-items:center}
+.metric.card{background:var(--blue-medium);color:#fff;padding:10px 16px;border-radius:8px;min-width:120px;text-align:center}
+.metric .m-title{font-size:13px}
+.metric .m-value{font-size:20px;font-weight:700;margin-top:6px}
+.main-layout{display:grid;grid-template-columns:2fr 360px;gap:20px;max-width:1200px;margin:18px auto;padding:0 10px;align-items:start}
+.left-panel{display:flex;flex-direction:column;gap:12px}
+.right-panel .card{background:#fff;padding:12px;border-radius:8px;box-shadow:0 2px 6px rgba(0,0,0,0.06);margin-bottom:12px}
+.charts-area{background:#fff;padding:12px;border-radius:8px;box-shadow:0 2px 6px rgba(0,0,0,0.06)}
+.charts-row{display:flex;gap:12px}
+.charts-row canvas{flex:1;height:180px}
+.news-section{background:#fff;padding:12px;border-radius:8px;box-shadow:0 2px 6px rgba(0,0,0,0.04)}
+.news-list{display:flex;flex-direction:column;gap:10px;margin-top:8px}
+.news-item{padding:12px;border-left:4px solid var(--blue-medium);background:#fff;border-radius:6px}
+.news-title{color:#003D80;font-weight:700}
+.news-desc{color:#333;margin-top:6px}
+.footer{padding:14px;text-align:center;color:#666;margin-top:20px;background:transparent}
+@media(max-width:1000px){.main-layout{grid-template-columns:1fr;max-width:92%}.center input{width:90%}.metrics-row{flex-wrap:wrap}}
